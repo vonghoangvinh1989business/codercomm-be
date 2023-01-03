@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const userController = require("../controllers/user.controller");
 
 /**
  * @route POST /users
@@ -7,6 +8,7 @@ const router = express.Router();
  * @body { name, email, password }
  * @access Public
  */
+router.post("/", userController.register);
 
 /**
  * @route GET /users?page=1&limit=10
