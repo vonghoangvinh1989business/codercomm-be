@@ -80,5 +80,13 @@ router.get(
  * @description Get comments of a post
  * @access Login required
  */
+router.get(
+  "/:id/comments",
+  authentication.loginRequired,
+  validators.validate([
+    param("id").exists().isString().custom(validators.checkObjectId),
+  ]),
+  postController.getCommentsOfPost
+);
 
 module.exports = router;
